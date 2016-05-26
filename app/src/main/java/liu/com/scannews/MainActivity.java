@@ -13,7 +13,9 @@ import liu.com.scannews.base.baseimp.LeftMenuFragment;
 
 public class MainActivity extends SlidingFragmentActivity{
 
+    //侧边栏的菜单
     private static final String TAG_LEFT_MENU = "TAG_LEFT_MENU";
+    //具体的新闻内容
     private static final String TAG_CONTENT = "TAG_CONTENT";
 
     @Override
@@ -46,5 +48,28 @@ public class MainActivity extends SlidingFragmentActivity{
         transaction.replace(R.id.fl_content,new ContentFragment(),TAG_CONTENT);
         transaction.replace(R.id.fl_left_menu,new LeftMenuFragment(),TAG_LEFT_MENU);
         transaction.commit();//提交事务
+    }
+
+    /**
+     * 获取侧边栏对象
+     * @return
+     */
+    public LeftMenuFragment getLeftMenuFragment(){
+
+        FragmentManager fm=getSupportFragmentManager();
+        LeftMenuFragment fragment= (LeftMenuFragment) fm.findFragmentByTag(TAG_LEFT_MENU);
+
+        return fragment;
+    }
+
+    /**
+     * 获取主页对象
+     * @return
+     */
+    public ContentFragment getContentFragment(){
+
+        FragmentManager fm=getSupportFragmentManager();
+        ContentFragment fragment= (ContentFragment) fm.findFragmentByTag(TAG_CONTENT);
+        return fragment;
     }
 }

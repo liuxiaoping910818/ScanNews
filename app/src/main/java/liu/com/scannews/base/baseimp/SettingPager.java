@@ -3,6 +3,7 @@ package liu.com.scannews.base.baseimp;
 import android.app.Activity;
 import android.graphics.Color;
 import android.view.Gravity;
+import android.view.View;
 import android.widget.TextView;
 
 import liu.com.scannews.base.BasePager;
@@ -20,6 +21,7 @@ public class SettingPager extends BasePager {
     public void initData() {
 
         tvTitle.setText("设置");
+        btnMenu.setVisibility(View.GONE);
         TextView view=new TextView(mActivity);
 
         view.setText("设置");

@@ -6,6 +6,9 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
+
+import liu.com.scannews.MainActivity;
 import liu.com.scannews.R;
 
 /**
@@ -41,6 +44,25 @@ public abstract class BasePager {
 
         //中间的内容
         flContent= (FrameLayout) mRootView.findViewById(R.id.fl_content);
+
+        btnMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                toggle();
+            }
+        });
+    }
+
+    /**
+     * 侧边栏展开或者收起的方法
+     */
+    protected  void toggle(){
+
+        MainActivity mainUI= (MainActivity) mActivity;
+        SlidingMenu slidingMenu=mainUI.getSlidingMenu();
+        slidingMenu.toggle();
+
     }
 
     public abstract  void initData();
